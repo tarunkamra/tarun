@@ -16,5 +16,8 @@ jobs:
           image_name: myimage
           image_tag: latest
           dockerfile: Dockerfile
-      
-     
+       - id: 'deploy'
+         uses: 'google-github-actions/deploy-cloudrun@v0'
+         with:
+          service: 'hello-cloud-run'
+          image: 'gcr.io/hidden-solstice-337107/myimage'
