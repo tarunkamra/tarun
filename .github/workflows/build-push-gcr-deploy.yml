@@ -18,7 +18,7 @@ jobs:
           dockerfile: Dockerfile
       - name: Deploy
         run: |
-          gcloud run deploy myimage --image gcr.io/hidden-solstice-337107/myimage@sha256:a02760978ee28b0231e4e44833dae84d88d7398a13bd4b211487cdc024732666/ \
+          gcloud run deploy myimage --image gcr.io/hidden-solstice-337107/myimage/ \
           --platform managed \
           --allow-unauthenticated \
           --memory 512M
