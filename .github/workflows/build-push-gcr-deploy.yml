@@ -16,8 +16,13 @@ jobs:
           image_name: myimage
           image_tag: latest
           dockerfile: Dockerfile
+          
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.GCLOUD_SERVICE_KEY }}'
       - id: 'deploy'
         uses: 'google-github-actions/deploy-cloudrun@v0'
         with:
-          service: 'hello-cloud-run'
+          service: 'test-service'
           image: 'gcr.io/hidden-solstice-337107/myimage'
