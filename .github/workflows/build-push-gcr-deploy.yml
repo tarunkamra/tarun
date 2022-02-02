@@ -22,7 +22,11 @@ jobs:
         with:
           credentials_json: '${{ secrets.GCLOUD_SERVICE_KEY }}'
       - id: 'deploy'
-        uses: 'google-github-actions/deploy-cloudrun@v0'
+        uses: 'google-github-actions/deploy-cloudrun@v0.8.0'
         with:
           service: 'myimage'
           image: 'gcr.io/hidden-solstice-337107/myimage'
+          region: 'us-central1'
+          project_id: 'hidden-solstice-337107'
+          
+          
