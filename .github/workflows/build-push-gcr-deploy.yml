@@ -16,9 +16,12 @@ jobs:
           image_name: myimage
           image_tag: latest
           dockerfile: Dockerfile
-      - name: Deploy
-        run: |
-          gcloud run deploy myimage --image gcr.io/hidden-solstice-337107/myimage:latest \
-          --platform managed \
-          --allow-unauthenticated \
-          --memory 512M
+     
+      - id: 'deploy'
+        uses: 'google-github-actions/deploy-cloudrun@v0'
+        with:
+          service: 'hello-cloud-run'
+          image: 'gcr.io/hidden-solstice-337107/myimage'
+      
+      - name: 'Use output'
+        run: 'curl "${{ steps.deploy.outputs.url }}"'
