@@ -1,7 +1,7 @@
 name: Deploy to Cloud Run
 on: [push]
 jobs:
-  Explore-Cloud-Run-Deployment
+  Explore-Cloud-Run-Deployment:
     runs-on: ubuntu-latest
     
     permissions:
